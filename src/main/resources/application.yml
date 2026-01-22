@@ -1,0 +1,38 @@
+# 服务器配置
+server:
+  # 应用启动端口（浏览器访问时使用此端口）
+  port: 8088
+# 文件上传访问URL前缀
+fileUploadsURL: http://localhost:${server.port}/uploads/
+# 应用基础配置
+spring:
+  # 应用名称配置（用于服务注册、日志标识等场景）
+  application:
+    name: springboot_myproject
+  # 数据源配置（数据库连接相关参数）
+  datasource:
+    # 数据库连接地址：MySQL地址+端口+数据库名，附加SSL关闭和时区配置
+    url: jdbc:mysql://localhost:3306/db_shequ?useSSL=false&serverTimezone=UTC
+    # 数据库登录用户名
+    username: root
+    # 数据库登录密码
+    password: 123456
+    # 数据库驱动类（MySQL 8.x及以上版本使用cj包下的驱动）
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #文件上传大小配置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
+# MyBatis-Plus 配置（增强MyBatis的ORM框架配置）
+mybatis-plus:
+  # Mapper接口对应的XML文件扫描路径（classpath*表示扫描所有资源目录下的mapper文件夹）
+  mapper-locations: classpath*:mapper/*.xml
+  # MyBatis核心配置
+  configuration:
+    # 是否开启下划线转驼峰命名映射（false表示关闭，数据库字段与实体类属性名需完全一致）
+    map-underscore-to-camel-case: false
+    # 日志实现类（配置为标准输出，控制台打印SQL语句，方便调试）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

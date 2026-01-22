@@ -1,0 +1,20 @@
+package org.example.springboot_project.service.impl;
+
+import org.example.springboot_project.entity.Room;
+import org.example.springboot_project.mapper.RoomMapper;
+import org.example.springboot_project.service.RoomService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ * 房间信息 服务实现类
+ * </p>
+ *
+ * @author baomidou
+ * @since 2026-01-02
+ */
+@Service
+public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements RoomService {
+
+}
